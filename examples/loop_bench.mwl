@@ -1,0 +1,28 @@
+from std.io import print
+from std.time import instant_now, instant_elapsed_nanos
+
+func main() {
+    const n = 10000
+    const m = 100000
+    const start = instant_now()
+    
+    var count: i64 = 0
+    var i: i32 = 0
+    while i < n {
+        var j: i32 = 0
+        while j < m {
+            count = @black_box(count + 1)
+            j += 1
+        }
+        i += 1
+    }
+    
+    const elapsed_ns = instant_elapsed_nanos(start)
+    const final_count = @black_box(count)
+    
+    const secs = elapsed_ns / 1_000_000_000
+    const ms = (elapsed_ns / 1_000_000) % 1000
+    
+    print(f"Result count: {final_count / 1_000_000}M iterations")
+    print(f"Elapsed time: {elapsed_ns / 1_000_000}ms ({secs}.{ms:03}s)")       
+}

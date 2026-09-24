@@ -1,0 +1,62 @@
+// Floyd-Warshall O(V^3)
+from std.io import print
+
+const INF: i32 = 999_999
+const V: usize = 4
+
+struct Graph {
+    matrix: [16]i32
+
+    func get(&self, i: usize, j: usize) -> i32 {
+        return self.matrix[i * V + j]
+    }
+
+    func set(&mut self, i: usize, j: usize, val: i32) {
+        self.matrix[i * V + j] = val
+    }
+
+    func floyd_warshall(&mut self) {
+        for k in 0..V {
+            for i in 0..V {
+                for j in 0..V {
+                    const ik = self.get(i, k)
+                    const kj = self.get(k, j)
+                    const ij = self.get(i, j)
+
+                    if ik != INF and kj != INF and ik + kj < ij {
+                        self.set(i, j, ik + kj)
+                    }
+                }
+            }
+        }
+    }
+
+    func print_solution(&self) {
+        for i in 0..V {
+            for j in 0..V {
+                const dist = self.get(i, j)
+                if dist == INF {
+                    print(f"dist[{i}][{j}] = INF")
+                } else {
+                    print(f"dist[{i}][{j}] = {dist}")
+                }
+            }
+        }
+    }
+}
+
+func main() {
+    var g = Graph {
+        matrix: [
+            0   5   INF 10
+            INF 0   3   INF
+            INF INF 0   1
+            INF INF INF 0
+        ]
+    }
+
+    g.floyd_warshall()
+    g.print_solution()
+    
+}
+
