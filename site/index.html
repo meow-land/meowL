@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>meowL</title>
+<meta name="description" content="A low-level, statically typed, compiled general-purpose programming language.">
+<style>
+  :root {
+    --bg: #fdf6ec;
+    --fg: #2b241a;
+    --muted: #7a7263;
+    --accent: #f5a524;
+    --accent-soft: #fde7c2;
+    --border: #ecdfc8;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 6rem 1.5rem 4rem;
+  }
+  .bg-logo {
+    position: absolute;
+    top: 50%;
+    right: -10%;
+    transform: translateY(-50%);
+    width: min(60vw, 700px);
+    height: auto;
+    opacity: 0.05;
+    -webkit-mask-image: radial-gradient(circle, black 40%, transparent 80%);
+    mask-image: radial-gradient(circle, black 40%, transparent 80%);
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+  }
+  body {
+    position: relative;
+    overflow-x: hidden;
+  }
+  main {
+    position: relative;
+    z-index: 1;
+  }
+  h1 {
+    font-size: 2.25rem;
+    margin: 0 0 0.5rem;
+    letter-spacing: -0.02em;
+    color: var(--fg);
+  }
+  p.tagline {
+    color: var(--muted);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0 0 2.5rem;
+    max-width: 55ch;
+  }
+  .links {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  a.btn {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    border: 1px solid var(--border);
+    background: #fff;
+    color: var(--fg);
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  a.btn:hover {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+  }
+  a.btn.primary {
+    background: var(--accent);
+    color: #3a2200;
+    border-color: var(--accent);
+    font-weight: 600;
+  }
+  a.btn.primary:hover {
+    background: #e2950f;
+    border-color: #e2950f;
+  }
+  code {
+    background: var(--accent-soft);
+    padding: 0.15em 0.4em;
+    border-radius: 4px;
+    font-size: 0.9em;
+  }
+  footer {
+    margin-top: 4rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+  footer a {
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
+<img class="bg-logo" src="assets/logo.svg" alt="">
+<main>
+  <h1>meowL</h1>
+  <p class="tagline">
+    A low-level, statically typed, compiled general-purpose programming language.
+    Built for readable, safe systems code — without carrying the weight of a
+    traditional runtime.
+  </p>
+
+  <div class="links">
+    <a class="btn primary" href="/book/">Documentation</a>
+    <a class="btn" href="https://github.com/meow-land/meowL">GitHub</a>
+  </div>
+
+  <footer>
+    <p>meowL is part of <a href="https://github.com/meow-land">MeowLand</a>. In active development.</p>
+  </footer>
+</main>
+</body>
+</html>
