@@ -1,0 +1,27 @@
+[book]
+title = "The meowL Programming Language"
+authors = ["MeowLand"]
+description = "Official documentation for meowL — a low-level, statically typed, compiled general-purpose programming language."
+language = "en"
+src = "src"
+
+[output.html]
+default-theme = "ayu"
+preferred-dark-theme = "ayu"
+git-repository-url = "https://github.com/meow-land/meowl"
+edit-url-template = "https://github.com/meow-land/meowl/edit/main/docs/{path}"
+site-url = "/"
+
+[output.html.search]
+enable = true
+limit-results = 20
+
+[output.html.fold]
+enable = true
+level = 1
+
+[output.html.playground]
+editable = false
+copyable = true
+copy-js = true
+line-numbers = true
