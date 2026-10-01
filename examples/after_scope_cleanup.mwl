@@ -1,0 +1,27 @@
+from std.io import put
+
+func log_init(ch: char) {
+    put(f"{ch}")
+}
+
+func log_cleanup(ch: char) {
+    const upper = (ch as u8 - 32) as char
+    put(f"{upper}")
+}
+
+func main() {
+    log_init('a')
+    after log_cleanup('a')
+
+    {
+        log_init('b')
+        after log_cleanup('b')
+
+        log_init('c')
+        after log_cleanup('c')
+    }
+
+    log_init('d')
+    after log_cleanup('d')
+}
+// abcCBdDA

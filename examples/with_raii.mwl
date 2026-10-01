@@ -1,0 +1,34 @@
+from std.io import put
+
+struct Log {
+    c: char
+
+    func enter(&mut self) {
+        const ch: char = self.c
+        put(f"{ch}")
+    }
+
+    func exit(&mut self) {
+        const upper = (self.c as u8 - 32) as char
+        put(f"{upper}")
+    }
+}
+
+func log_guard(ch: char) -> Log {
+    return Log { c: ch }
+}
+
+func main() {
+    with log_guard('a') as a {
+        {
+            with log_guard('b') as b {
+                with log_guard('c') as c {
+                }
+            }
+        }
+        with log_guard('d') as d {
+        }
+    }
+}
+//  `with` (RAII)
+//  abcCBdDA
