@@ -1,0 +1,33 @@
+// Euclidean Algorithm (Greatest Common Divisor)
+// gcd(48, 18) = 6
+// gcd(101, 10) = 1
+from std.io import print
+
+struct Calculator {
+    func gcd(&self, a: i32, b: i32) -> i32 {
+        var x = a
+        var y = b
+
+        while y != 0 {
+            const temp = y
+            y = x % y
+            x = temp
+        }
+
+        return x
+    }
+}
+
+func main() {
+    const calc = Calculator {}
+
+    const x = 48
+    const y = 18
+    const res1 = calc.gcd(x, y)
+    print(f"gcd({x}, {y}) = {res1}")
+
+    const a = 101
+    const b = 10
+    const res2 = calc.gcd(a, b)
+    print(f"gcd({a}, {b}) = {res2}")
+}
