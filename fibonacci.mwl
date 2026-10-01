@@ -1,0 +1,42 @@
+// Fibonacci Sequence (Recursive & Iterative)
+// fib(7) = 13
+// fib(10) = 55
+from std.io import print
+
+struct Fibonacci {
+    func fib_recursive(&self, n: i32) -> i32 {
+        if n <= 1 {
+            return n
+        }
+        return self.fib_recursive(n - 1) + self.fib_recursive(n - 2)
+    }
+
+    func fib_iterative(&self, n: i32) -> i32 {
+        if n <= 1 {
+            return n
+        }
+
+        var prev = 0
+        var curr = 1
+
+        for _ in 2..(n + 1) {
+            const next = prev + curr
+            prev = curr
+            curr = next
+        }
+
+        return curr
+    }
+}
+
+func main() {
+    const fib = Fibonacci {}
+
+    const n1 = 7
+    const r1 = fib.fib_recursive(n1)
+    print(f"fib({n1}) = {r1}")
+
+    const n2 = 10
+    const r2 = fib.fib_iterative(n2)
+    print(f"fib({n2}) = {r2}")
+}
