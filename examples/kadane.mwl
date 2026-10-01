@@ -1,0 +1,27 @@
+from std.io import print
+
+func main() {
+    const a = [
+        -2 1 -3 4
+        -1 2 1 -5
+    ]
+    const n = 8
+
+    var cur = a[0]
+    var best = a[0]
+
+    for i in 1..n {
+        if a[i] > cur + a[i] {
+            cur = a[i]
+        } else {
+            cur = cur + a[i]
+        }
+
+        if cur > best {
+            best = cur
+        }
+    }
+
+    print(f"max sum {best}")
+}
+// max sum 6
