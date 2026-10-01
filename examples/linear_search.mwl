@@ -1,0 +1,37 @@
+// Linear Search
+// found 42 at index 3
+// 99 not found (-1)
+from std.io import print
+
+struct Searcher {
+    func find(&self, a: [6]i32, target: i32) -> i32 {
+        const n = 6
+        for i in 0..n {
+            if a[i] == target {
+                return i
+            }
+        }
+        return -1
+    }
+}
+
+func main() {
+    const searcher = Searcher {}
+    const items = [10 25 3 42 7 88]
+
+    const target1 = 42
+    const idx1 = searcher.find(items, target1)
+    if idx1 != -1 {
+        print(f"found {target1} at index {idx1}")
+    } else {
+        print(f"{target1} not found")
+    }
+
+    const target2 = 99
+    const idx2 = searcher.find(items, target2)
+    if idx2 != -1 {
+        print(f"found {target2} at index {idx2}")
+    } else {
+        print(f"{target2} not found ({idx2})")
+    }
+}

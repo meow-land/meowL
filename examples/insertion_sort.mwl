@@ -1,0 +1,25 @@
+// Insertion Sort
+// 5 6 11 12 13
+from std.io import put
+
+func main() {
+    var a = [12 11 13 5 6]
+    const n = 5
+
+    for i in 1..n {
+        const key = a[i]
+        var j = i - 1
+
+        while j >= 0 and a[j] > key {
+            a[j + 1] = a[j]
+            j -= 1
+        }
+
+        a[j + 1] = key
+    }
+
+    for i in 0..n {
+        put(f"{a[i]} ")
+    }
+    put("\n")
+}
