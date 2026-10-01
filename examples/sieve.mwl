@@ -1,0 +1,41 @@
+// Sieve of Eratosthenes
+// 2 3 5 7 11 13 17 19 23 29
+
+from std.io import put
+
+func main() {
+    const limit = 30
+    const n = limit + 1
+
+    var prime = [
+        true true true true true true true true
+        true true true true true true true true
+        true true true true true true true true
+        true true true true true true true
+    ]
+
+    prime[0..2] = false
+
+    var p = 2
+    while p * p <= limit {
+        if not prime[p] {
+            p += 1
+            continue
+        }
+
+        var k = p * p
+        while k <= limit {
+            prime[k] = false
+            k += p
+        }
+
+        p += 1
+    }
+
+    for i in 2..n {
+        if prime[i] {
+            put(f"{i} ")
+        }
+    }
+    put("\n")
+}
