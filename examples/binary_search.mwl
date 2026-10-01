@@ -1,0 +1,32 @@
+from std.io import print
+
+func main() {
+    const a = [
+        2 5 8 12 16 23
+        28 56 72 91
+    ]
+    const target = 23
+    var lo = 0
+    var hi = 9
+    var found = false
+
+    while lo <= hi {
+        const mid = lo + (hi - lo) / 2
+        if a[mid] == target {
+            print(f"found at {mid}")
+            found = true
+            break
+        }
+        if a[mid] < target {
+            lo = mid + 1
+        } else {
+            hi = mid - 1
+        }
+    }
+
+    if not found {
+        print("not found")
+    }
+}
+
+// found at 5
