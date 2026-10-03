@@ -1,0 +1,33 @@
+// Bresenham's Line Algorithm
+// (0,0) (1,1) (2,1) (3,2) (4,2) (5,3) (6,3) (7,4) (8,4) (9,5)
+from std.io import put
+from core.math import abs
+
+func main() 
+{
+    var x0 = 0, var y0 = 0
+    const x1 = 9, const y1 = 5
+
+    const dx = abs(x1 - x0)
+    const dy = -abs(y1 - y0)
+
+    var sx = -1, var sy = -1
+    if x0 < x1 { sx = 1 }
+    if y0 < y1 { sy = 1 }
+
+    var #err = dx + dy
+
+    while true {
+        put(f"({x0},{y0}) ")
+
+        if x0 == x1 and y0 == y1 { break }
+
+        const e2 = 2 * #err
+        if e2 >= dy { err += dy, x0 += sx }
+        if e2 <= dx { err += dx, y0 += sy }
+    }
+    
+    put("\n")
+}
+
+/* This example uses sequential commands separated by commas, as well as a new example involving function parentheses. */
